@@ -8,6 +8,7 @@ const Page = () => {
       <p>Some cool &apos;bout to happen</p>
       <Link href="/about">About</Link>
       <Link href="/param/test">Param: test</Link>
+      <Link href="layout-loading">Loading</Link>
     </main>
   );
 }
