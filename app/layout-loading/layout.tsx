@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { ReactNode, useState, useEffect, Suspense } from 'react';
 import Loading from './loading';
 
-export default function Layout({ children }) {
+export default function Layout({ children }: { children: ReactNode }) {
   const [isContentReady, setContentReady] = useState(false);
 
   useEffect(() => {
