@@ -6,7 +6,9 @@ export default function Layout({ children }: { children: ReactNode }) {
     &nbsp; | &nbsp;
     <Link href="/portal">Portal Home</Link>
     &nbsp; | &nbsp;
-    <Link href="/portal/test">List Test Objs</Link>
+    <Link href="/portal/test">Api List Test Objs</Link>
+    &nbsp; | &nbsp;
+    <Link href="/portal/test2">Sequencial List Test Objs</Link>
     &nbsp; | &nbsp;
     <Link href="/logoff">Logoff</Link>
     <br />

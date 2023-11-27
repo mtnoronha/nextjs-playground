@@ -1,8 +1,3 @@
-type Test = {
-  id: string;
-  name: string;
-}
-
 export async function GET() {
   const data = [
     { id: '1', name: 'Test 1' },

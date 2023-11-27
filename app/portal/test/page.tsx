@@ -8,15 +8,14 @@ type Test = {
   name: string;
 };
 
-export default function Profile() {
+export default function Page() {
   const [data, setData] = useState<Test[]>([]);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       const response = await fetch('/api/v1/test');
-      const testData = await response.json();
-      setData(testData);
+      setData(await response.json());
       setLoading(false);
     }
 
@@ -25,7 +24,7 @@ export default function Profile() {
 
   return (
     <>
-      <h1>We&apos;re inside neo - Test</h1>
+      <h1>We`re making an api call here</h1>
       <h2>List of test objects: </h2>
 
       <Suspense fallback={<Loading />}>
