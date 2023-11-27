@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 function checkLoggedIn(request: NextRequest) {
-  return request.cookies.get('isLoggedIn') !== undefined;
+  return request.cookies.get('isLoggedIn')?.value !== 'true';
 }
 
 export function middleware(request: NextRequest) {
