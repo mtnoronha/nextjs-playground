@@ -8,7 +8,7 @@ type Test = {
 };
 
 async function TestList() {
-  const response = await fetch('api/v1/test');
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/test`);
   const tests = await response.json();
 
   return (
