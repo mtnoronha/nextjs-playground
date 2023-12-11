@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { list as listProducts } from '@/services/ProductService';
 import ProductsComponent from '@/components/Products';
 import LoadingProducts from '@/components/LoadingProducts';
+import { ProductState } from '@/types';
 
 async function RenderProducts() {
   const productState: ProductState = await listProducts();

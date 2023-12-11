@@ -1,19 +1,9 @@
-import React, { ReactNode } from 'react';
-import Link from 'next/link';
+import { ReactNode } from 'react';
+import Menu from '@/components/Menu';
+
 export default function Layout({ children }: { children: ReactNode }) {
   return <main>
-    <Link href="/">Index</Link>
-    &nbsp; | &nbsp;
-    <Link href="/portal">Portal Home</Link>
-    &nbsp; | &nbsp;
-    <Link href="/portal/test">Api List Test Objs</Link>
-    &nbsp; | &nbsp;
-    <Link href="/portal/test2">Sequencial List Test Objs</Link>
-    &nbsp; | &nbsp;
-    <Link href="/portal/products">Products</Link>
-    &nbsp; | &nbsp;
-    <Link href="/logoff">Logoff</Link>
-    <br />
+    <Menu />
     { children }
   </main>
 }
