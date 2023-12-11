@@ -8,7 +8,7 @@ type Test = {
 };
 
 async function TestList() {
-  const response = await fetch('http://localhost:3000/api/v1/test');
+  const response = await fetch('api/v1/test');
   const tests = await response.json();
 
   return (
