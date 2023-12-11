@@ -1,4 +1,4 @@
-import { Product } from '@/services/ProductService';
+import { Product } from '@/types';
 import ProductComponent from './Product';
 
 interface ProductsProps {

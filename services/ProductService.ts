@@ -1,28 +1,4 @@
-type Product = {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  discountPercentage: number;
-  rating: number;
-  stock: number;
-  brand: string;
-  category: string;
-  thumbnail: string;
-  images: string[];
-}
-
-type SuccessProductState = {
-  state: 'Success',
-  data: Product[],
-}
-
-type ErrorState = {
-  state: 'Error',
-  error: { message: string },
-}
-
-type ProductState = SuccessProductState | ErrorState
+import { ProductState } from "@/types";
 
 async function list(): Promise<ProductState> {
   const res: Response = await fetch('https://dummyjson.com/products');
@@ -44,7 +20,7 @@ async function list(): Promise<ProductState> {
   };
 }
 
-module.exports = {
+export {
   list,
 }
 
