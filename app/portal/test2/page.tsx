@@ -1,6 +1,8 @@
 
 import React, { Suspense } from 'react';
 import Loading from '@/components/LoadingSkeleton';
+import { unstable_noStore as noStore } from 'next/cache';
+
 
 type Test = {
   id: string;
@@ -8,6 +10,8 @@ type Test = {
 };
 
 async function TestList() {
+  noStore();
+
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/test`);
   const tests = await response.json();
 
