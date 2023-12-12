@@ -3,8 +3,10 @@ import { list as listProducts } from '@/services/ProductService';
 import ProductsComponent from '@/components/Products';
 import LoadingProducts from '@/components/LoadingProducts';
 import { ProductState } from '@/types';
+import { unstable_noStore as noStore } from 'next/cache';
 
 async function RenderProducts() {
+  noStore();
   const productState: ProductState = await listProducts();
 
   if (productState.state == 'Error') {
