@@ -5,8 +5,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const getClassNamesFor = (path: string, actualPath: string) => {
-  console.log(path, actualPath);
-
   return clsx(
     'menu-item',
     {
