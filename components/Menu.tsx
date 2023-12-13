@@ -23,6 +23,10 @@ export default function Menu() {
       &nbsp; | &nbsp;
       <Link href="/portal" className={getClassNamesFor('/portal', actualPath)}>Portal Home</Link>
       &nbsp; | &nbsp;
+      <Link href="/portal/users" className={getClassNamesFor('/portal/users', actualPath)}>Usuários</Link>
+      &nbsp; | &nbsp;
+      <Link href="/portal/posts" className={getClassNamesFor('/portal/posts', actualPath)}>Postagens</Link>
+      &nbsp; | &nbsp;
       <Link href="/portal/test" className={getClassNamesFor('/portal/test', actualPath)}>Api List Test Objs</Link>
       &nbsp; | &nbsp;
       <Link href="/portal/test2" className={getClassNamesFor('/portal/test2', actualPath)}>Sequencial List Test Objs</Link>
