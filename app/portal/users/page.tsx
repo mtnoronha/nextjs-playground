@@ -2,10 +2,10 @@ import { Suspense } from 'react';
 import Users from '@/components/Users';
 import LoadingSkeleton from '@/components/LoadingSkeleton';
 import { prisma } from '@/prisma/prisma_base';
-import { unstable_noStore as noStore } from 'next/cache';
+
+export const revalidate = 0;
 
 async function ListUsers() {
-  noStore();
   const users = await prisma.user.findMany();
 
   if (users.length == 0) {
