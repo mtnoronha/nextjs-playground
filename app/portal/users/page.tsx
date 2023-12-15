@@ -17,7 +17,7 @@ async function ListUsers() {
 
 export default async function Page() {
   return <>
-    <h1>Users</h1>
+    <h1 className="text-3xl font-bold underline">Users</h1>
     <Suspense fallback={<LoadingSkeleton />}>
       <ListUsers />
     </Suspense>
