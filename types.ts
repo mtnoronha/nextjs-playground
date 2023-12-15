@@ -23,3 +23,9 @@ export type ErrorState = {
 }
 
 export type ProductState = SuccessProductState | ErrorState
+
+export type User = {
+  id: string;
+  name: string | null;
+  email: string;
+}

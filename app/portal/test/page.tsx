@@ -23,7 +23,7 @@ export default function Page() {
   }, []);
 
   return (
-    <>
+    <div className="container py-2">
       <h1>We`re making an api call here</h1>
       <h2>List of test objects: </h2>
 
@@ -40,6 +40,6 @@ export default function Page() {
             <Loading />
         }
       </Suspense>
-    </>
+    </div>
   );
 }

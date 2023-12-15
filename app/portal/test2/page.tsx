@@ -28,13 +28,13 @@ async function TestList() {
 
 export default function Page() {
   return (
-    <>
+    <div className="container py-2">
       <h1>This is Sequential</h1>
       <h2>List of test objects: </h2>
 
       <Suspense fallback={<Loading />}>
         <TestList></TestList>
       </Suspense>
-    </>
+    </div>
   );
 }
