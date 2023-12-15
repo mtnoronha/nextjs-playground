@@ -16,10 +16,10 @@ async function ListUsers() {
 }
 
 export default async function Page() {
-  return <>
+  return <div className="container py-2">
     <h1 className="text-3xl font-bold underline">Users</h1>
     <Suspense fallback={<LoadingSkeleton />}>
       <ListUsers />
     </Suspense>
-  </>
+  </div>
 }

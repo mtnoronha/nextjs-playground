@@ -20,13 +20,12 @@ async function RenderProducts() {
 }
 
 export default async function Page() {
-  return <>
+  return <div className="container py-2">
     <h1>Server side component</h1>
     <h2>We&apos;ll list the products here ;)</h2>
 
     <Suspense fallback={<LoadingProducts />}>
       <RenderProducts />
     </Suspense>
-  </>
-
+  </div>
 }
