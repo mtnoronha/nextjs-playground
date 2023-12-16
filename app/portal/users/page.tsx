@@ -1,12 +1,13 @@
 import { Suspense } from 'react';
 import Users from '@/components/Users';
 import LoadingSkeleton from '@/components/LoadingSkeleton';
-import { prisma } from '@/prisma/prisma_base';
+import type { User } from '@prisma/client'
+import prisma from '@/prisma/prisma';
 
 export const revalidate = 0;
 
 async function ListUsers() {
-  const users = await prisma.user.findMany();
+  const users: User[] = await prisma.user.findMany();
 
   if (users.length == 0) {
     return <h1>No users yet</h1>;
