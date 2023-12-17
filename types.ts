@@ -23,3 +23,8 @@ export type ErrorState = {
 }
 
 export type ProductState = SuccessProductState | ErrorState
+
+export type formState = {
+  message: string | null;
+  type?: 'info' | 'success' | 'warning' | 'error' | null,
+}

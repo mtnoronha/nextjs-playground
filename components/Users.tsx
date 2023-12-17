@@ -1,4 +1,4 @@
-import { User } from '@/types';
+import type { User } from '@prisma/client';
 import UserComponent from './User';
 
 interface UsersProps {
