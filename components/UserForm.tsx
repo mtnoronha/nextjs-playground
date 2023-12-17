@@ -17,7 +17,6 @@ export default function UserForm({ user }: UserProps) {
   const router = useRouter();
 
   async function clientAction(formData: FormData) {
-    console.log('Am I being called?');
     const name = formData.get('name');
     const email = formData.get('email');
 

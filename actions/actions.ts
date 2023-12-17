@@ -8,7 +8,7 @@ export async function findUser(id: string | null): Promise<formState> {
   if (!id) {
     return Promise.resolve({
       message: 'No user to find',
-      type: 'warning',
+      type: 'info',
     });
   }
 
@@ -19,8 +19,16 @@ export async function findUser(id: string | null): Promise<formState> {
       },
     });
 
+    if (!user) {
+      return {
+        message: 'User not found',
+        type: 'error',
+      };
+    }
+
     return {
       data: user,
+      type: 'success',
       message: `User ${user?.name} found`,
     };
   } catch (error) {
