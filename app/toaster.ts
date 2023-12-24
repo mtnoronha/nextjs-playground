@@ -1,9 +1,9 @@
-import toast from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 import { formState } from '@/types';
 
 
 export const toaster = {
-  send: (msg: formState) => {
+  send: (msg: formState<any>) => {
     if (msg.type === 'success') {
       toast.success(msg.message);
       return;

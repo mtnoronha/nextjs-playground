@@ -1,13 +1,18 @@
 'use client';
 
 import SubmitButton from '@/components/SubmitButton';
-import { saveUser } from '@/actions/actions';
+import { saveOrUpdateUser } from '@/actions/actions';
 import { toaster } from '@/app/toaster';
 import { useRef } from 'react';
 import { useRouter } from 'next/navigation';
-import { revalidatePath } from 'next/cache';
+import type { User } from '@prisma/client';
 
-export default function UserForm() {
+type UserProps = {
+  user?: User;
+};
+
+
+export default function UserForm({ user }: UserProps) {
   const ref = useRef<HTMLFormElement>(null);
   const router = useRouter();
 
@@ -19,10 +24,13 @@ export default function UserForm() {
       return;
     }
 
-    const msg = await saveUser(formData);
+    const msg = await saveOrUpdateUser(formData, user?.id);
     toaster.send(msg);
     if (msg.type === 'success') {
-      ref.current?.reset();
+      if (user == null) {
+        ref.current?.reset();
+      }
+
       router.push('/portal/users');
       router.refresh();
     }
@@ -30,8 +38,8 @@ export default function UserForm() {
 
   return (
     <form ref={ref} action={clientAction} className="flex flex-col align-middle items-center gap-2 mt-4">
-      <input type="text" required name="name" placeholder="Name" className="input input-bordered input-primary w-full max-w-xs" />
-      <input type="email" required name="email" placeholder="Email" className="input input-bordered input-primary w-full max-w-xs" />
+      <input type="text"  defaultValue={(user?.name || '')} required name="name" placeholder="Name" className="input input-bordered input-primary w-full max-w-xs" />
+      <input type="email" defaultValue={user?.email} required name="email" placeholder="Email" className="input input-bordered input-primary w-full max-w-xs" />
       <SubmitButton />
     </form>
   );
