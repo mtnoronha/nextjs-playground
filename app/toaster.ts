@@ -3,10 +3,7 @@ import { formState } from '@/types';
 
 
 export const toaster = {
-  send: (msg: formState) => {
-    console.log('trying to send,',msg);
-    console.log(toast);
-
+  send: (msg: formState<any>) => {
     if (msg.type === 'success') {
       toast.success(msg.message);
       return;

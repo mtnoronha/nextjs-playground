@@ -1,7 +1,5 @@
 import { findUser } from '@/actions/actions';
-import { toaster } from '@/app/toaster';
 import UserForm from '@/components/UserForm';
-import { User } from '@prisma/client';
 
 type idProp = {
   id: string[];
@@ -16,13 +14,12 @@ export default async function Page({ params } : ParamsProps) {
   const headerText = userId ? 'Edit user' : 'New user';
 
   const userFormState = await findUser(userId);
-  const user = userFormState.data as User;
 
   if (userFormState.type === 'error') {
-    // FIXME cant call toaster here because we're on server-side
-    // What should we do? Create another component like an Alert?
-    // toaster.send(userFormState);
+    return <h1 className="text-center text-2xl">{userFormState.message}</h1>;
   }
+
+  const user = userFormState.data;
 
   return (
     <div className="container py-2">

@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 import type { User } from '@prisma/client';
 
 type UserProps = {
-  user: User;
+  user?: User;
 };
 
 

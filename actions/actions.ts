@@ -4,7 +4,7 @@ import prisma from '@/prisma/prisma';
 import { formState } from '@/types';
 import { Prisma, User } from '@prisma/client';
 
-export async function findUser(id: string | null): Promise<formState> {
+export async function findUser(id: string | null): Promise<formState<User>> {
   if (!id) {
     return Promise.resolve({
       message: 'No user to find',
@@ -69,9 +69,9 @@ async function updateUser(data: FormData, id: number): Promise<User> {
   });
 }
 
-export async function saveOrUpdateUser(data: FormData, id: number | null): Promise<formState> {
+export async function saveOrUpdateUser(data: FormData, id: number | undefined): Promise<formState<User>> {
   try {
-    const user = id == null? await createNewUser(data) : await updateUser(data, id);
+    const user = !id ? await createNewUser(data) : await updateUser(data, id);
 
     return {
       message: `User ${user.name} was saved successfully`,

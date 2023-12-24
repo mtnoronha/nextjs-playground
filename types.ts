@@ -24,8 +24,8 @@ export type ErrorState = {
 
 export type ProductState = SuccessProductState | ErrorState
 
-export type formState = {
-  data?: unknown;
+export type formState<TData> = {
+  data?: TData;
   message: string | null;
   type?: 'info' | 'success' | 'warning' | 'error' | null,
 }
